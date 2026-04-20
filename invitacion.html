@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Memorial</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* ===== SOBRE ===== */
+#envelope-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#dfe9f3, #ffffff);
+}
+
+.sobre-img {
+    width: 90vw;
+    max-width: 900px;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.sobre-img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== INVITACIÓN ===== */
+#main {
+    display: none;
+    padding: 20px;
+}
+
+.contenedor-img {
+    position: relative;
+    display: inline-block;
+}
+
+.invitacion-img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* BOTÓN ORACIÓN */
+.btn-oracion {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+
+    background: linear-gradient(45deg, #c9a96e, #f5e6c4);
+    color: #3a2e1f;
+    font-size: 16px;
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.btn-oracion:hover {
+    transform: scale(1.05);
+}
+
+/* ===== ORACIÓN ===== */
+#oracion {
+    display: none;
+    padding: 20px;
+}
+
+.contenedor-oracion {
+    position: relative;
+    display: inline-block;
+}
+
+.img-oracion {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* BOTÓN MAPS */
+.btn-maps {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+
+    background: linear-gradient(45deg, #a67c52, #f5e6c4);
+    color: #3a2e1f;
+    font-size: 16px;
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.btn-maps:hover {
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .btn-oracion,
+    .btn-maps {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== SOBRE ===== -->
+<div id="envelope-screen">
+    <img src="sobre.jpeg" class="sobre-img" onclick="openInvite()">
+</div>
+
+<!-- ===== INVITACIÓN ===== -->
+<div id="main">
+
+    <div class="contenedor-img">
+        <img src="invitacion.png" class="invitacion-img">
+
+        <button class="btn-oracion" onclick="openPrayer()">🙏 Oración</button>
+    </div>
+
+</div>
+
+<!-- ===== ORACIÓN ===== -->
+<div id="oracion">
+
+    <div class="contenedor-oracion">
+        <img src="oracion.png" class="img-oracion">
+
+        <button class="btn-maps" onclick="openMaps()">📍 Acompáñanos</button>
+    </div>
+
+</div>
+
+<!-- ===== AUDIO ===== -->
+<audio id="music" loop>
+    <source src="confieso.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function openInvite() {
+    document.getElementById("envelope-screen").style.display = "none";
+    document.getElementById("main").style.display = "block";
+
+    document.getElementById("music").play();
+}
+
+function openPrayer() {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("oracion").style.display = "block";
+}
+
+function openMaps() {
+    window.open("https://maps.app.goo.gl/sKvCAUpHjy5QmoWB8?g_st=aw", "_blank");
+}
+</script>
+
+</body>
+</html>
